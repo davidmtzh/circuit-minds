@@ -1,0 +1,11 @@
+{
+	"name": "circuit-minds",
+	"private": true,
+	"version": "0.0.1",
+	"packageManager": "pnpm@10.30.3",
+	"scripts": {
+	"dev:web": "pnpm -C apps/web dev",
+	"dev:app": "pnpm -C apps/app dev -- -p 3001",
+	"dev:api": "pnpm -C apps/api start:dev"
+		 }
+}
