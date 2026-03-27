@@ -1,12 +1,18 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Headers, Post } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
+import { AdminAuthService } from '../auth/admin-auth.service';
 
 @Controller('courses')
 export class CoursesController {
-  constructor(private readonly supabase: SupabaseService) {}
+  constructor(
+    private readonly supabase: SupabaseService,
+    private readonly adminAuth: AdminAuthService,
+  ) {}
 
   @Get()
-  async listCourses() {
+  async listCourses(@Headers('authorization') authorization: string) {
+    await this.adminAuth.requireAdmin(authorization);
+
     const client = this.supabase.getClient();
     const { data, error } = await client
       .from('courses')
@@ -18,7 +24,12 @@ export class CoursesController {
   }
 
   @Post()
-  async createCourse(@Body() body: { title?: string; description?: string }) {
+  async createCourse(
+    @Headers('authorization') authorization: string,
+    @Body() body: { title?: string; description?: string },
+  ) {
+    await this.adminAuth.requireAdmin(authorization);
+
     if (!body?.title) return { ok: false, error: 'title is required' };
 
     const client = this.supabase.getClient();

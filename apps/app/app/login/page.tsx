@@ -76,12 +76,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="text-sm mt-4">
-          Don&apos;t have an account?{' '}
-          <a href="/signup" className="underline">
-            Sign up
-          </a>
-        </p>
       </div>
     </main>
   )

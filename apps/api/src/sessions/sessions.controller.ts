@@ -1,12 +1,21 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Headers, Post, Query } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
+import { AdminAuthService } from '../auth/admin-auth.service';
 
 @Controller('sessions')
 export class SessionsController {
-  constructor(private readonly supabase: SupabaseService) {}
+  constructor(
+    private readonly supabase: SupabaseService,
+    private readonly adminAuth: AdminAuthService,
+  ) {}
 
   @Get()
-  async list(@Query('course_id') courseId?: string) {
+  async list(
+    @Headers('authorization') authorization?: string,
+    @Query('course_id') courseId?: string,
+  ) {
+    await this.adminAuth.requireAdmin(authorization);
+
     const client = this.supabase.getClient();
 
     let q = client
@@ -22,12 +31,18 @@ export class SessionsController {
   }
 
   @Post()
-  async create(@Body() body: {
-    course_id?: number;
-    starts_at?: string;
-    ends_at?: string;
-    max_students?: number;
-  }) {
+  async create(
+    @Headers('authorization') authorization: string,
+    @Body()
+    body: {
+      course_id?: number;
+      starts_at?: string;
+      ends_at?: string;
+      max_students?: number;
+    },
+  ) {
+    await this.adminAuth.requireAdmin(authorization);
+
     if (!body?.course_id) return { ok: false, error: 'course_id is required' };
     if (!body?.starts_at) return { ok: false, error: 'starts_at is required' };
     if (!body?.ends_at) return { ok: false, error: 'ends_at is required' };
