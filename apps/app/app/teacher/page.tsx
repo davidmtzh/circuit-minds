@@ -2,6 +2,12 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import LogoutButton from '../dashboard/logout-button'
 
+type TeacherCourseRow = {
+  id: number
+  title: string | null
+  description: string | null
+}
+
 type TeacherSessionRow = {
   id: number
   course_id: number
@@ -9,11 +15,7 @@ type TeacherSessionRow = {
   ends_at: string
   max_students: number
   teacher_id: string | null
-  courses: {
-    id: number
-    title: string | null
-    description: string | null
-  } | null
+  courses: TeacherCourseRow[] | null
 }
 
 export const dynamic = 'force-dynamic'
@@ -93,42 +95,46 @@ export default async function TeacherPage() {
             </p>
           )}
 
-          {!sessionsError && sessions && sessions.length > 0 && (
-            <div className="space-y-4">
-              {(sessions as TeacherSessionRow[]).map((session) => (
-                <div key={session.id} className="rounded-xl border p-4">
-                  <h3 className="text-lg font-semibold">
-                    {session.courses?.title || `Session #${session.id}`}
-                  </h3>
+            {!sessionsError && sessions && sessions.length > 0 && (
+      <div className="space-y-4">
+        {(sessions as TeacherSessionRow[]).map((session) => {
+          const course = session.courses?.[0] ?? null
 
-                  <p className="mt-1 text-sm text-gray-600">
-                    {session.courses?.description || 'No description available.'}
-                  </p>
+          return (
+            <div key={session.id} className="rounded-xl border p-4">
+              <h3 className="text-lg font-semibold">
+                {course?.title || `Session #${session.id}`}
+              </h3>
 
-                  <div className="mt-4 grid gap-2 text-sm text-gray-700 sm:grid-cols-2">
-                    <p>
-                      <strong>Starts:</strong>{' '}
-                      {session.starts_at
-                        ? new Date(session.starts_at).toLocaleString()
-                        : 'Not set'}
-                    </p>
-                    <p>
-                      <strong>Ends:</strong>{' '}
-                      {session.ends_at
-                        ? new Date(session.ends_at).toLocaleString()
-                        : 'Not set'}
-                    </p>
-                    <p>
-                      <strong>Max students:</strong> {session.max_students}
-                    </p>
-                    <p>
-                      <strong>Session ID:</strong> {session.id}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              <p className="mt-1 text-sm text-gray-600">
+                {course?.description || 'No description available.'}
+              </p>
+
+              <div className="mt-4 grid gap-2 text-sm text-gray-700 sm:grid-cols-2">
+                <p>
+                  <strong>Starts:</strong>{' '}
+                  {session.starts_at
+                    ? new Date(session.starts_at).toLocaleString()
+                    : 'Not set'}
+                </p>
+                <p>
+                  <strong>Ends:</strong>{' '}
+                  {session.ends_at
+                    ? new Date(session.ends_at).toLocaleString()
+                    : 'Not set'}
+                </p>
+                <p>
+                  <strong>Max students:</strong> {session.max_students ?? 'N/A'}
+                </p>
+                <p>
+                  <strong>Session ID:</strong> {session.id}
+                </p>
+              </div>
             </div>
-          )}
+          )
+        })}
+      </div>
+    )}
         </div>
       </div>
     </main>
