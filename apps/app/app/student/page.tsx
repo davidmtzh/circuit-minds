@@ -4,23 +4,27 @@ import LogoutButton from '../dashboard/logout-button'
 
 export const dynamic = 'force-dynamic'
 
+type CourseRow = {
+  id: number
+  title: string | null
+  description: string | null
+}
+
+type ClassSessionRow = {
+  id: number
+  course_id: number
+  starts_at: string
+  ends_at: string
+  max_students: number
+  courses: CourseRow[] | null
+}
+
 type EnrollmentRow = {
   id: number
   session_id: number
   student_id: string
   created_at: string
-  class_sessions: {
-    id: number
-    course_id: number
-    starts_at: string
-    ends_at: string
-    max_students: number
-    courses: {
-      id: number
-      title: string | null
-      description: string | null
-    } | null
-  } | null
+  class_sessions: ClassSessionRow[] | null
 }
 
 export default async function StudentPage() {
@@ -107,8 +111,8 @@ export default async function StudentPage() {
             {!enrollmentsError && enrollments && enrollments.length > 0 && (
               <div className="space-y-4">
                 {(enrollments as EnrollmentRow[]).map((enrollment) => {
-                  const session = enrollment.class_sessions
-                  const course = session?.courses
+                  const session = enrollment.class_sessions?.[0] ?? null
+                  const course = session?.courses?.[0] ?? null
 
                   return (
                     <div key={enrollment.id} className="rounded-xl border p-4">
