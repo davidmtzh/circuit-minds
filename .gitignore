@@ -1,9 +1,36 @@
-node_modules
-.next
-dist
-coverage
-.vercel
+# Dependencies
+node_modules/
 
+# Next.js
+.next/
+out/
+
+# Build output
+dist/
+coverage/
+
+# Vercel
+.vercel/
+
+# Environment files
 .env
 .env.*
+!.env.example
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript build cache
+*.tsbuildinfo
+next-env.d.ts
+
+# Optional Supabase local temp files
+supabase/.temp/
