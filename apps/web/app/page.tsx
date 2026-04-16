@@ -3,21 +3,43 @@ import CircuitHero from '@/components/hero/CircuitHero';
 const courses = [
   {
     title: 'Electronics 101',
+    subtitle: '12 Labs • 6 Weeks',
     description:
-      'Students explore circuits, components, and hands-on electronics through guided lab projects designed to build confidence and technical intuition.',
+      'Students explore circuits, components, breadboards, and practical electronics through structured hands-on labs designed to build real confidence.',
+    badge: 'Core Engineering Track',
+    badgeClass: 'border-cyan-300/20 bg-cyan-300/12 text-cyan-100',
+    surface:
+      'bg-[linear-gradient(180deg,rgba(8,20,42,0.98),rgba(5,8,22,0.98))]',
+    hoverText: 'group-hover:text-cyan-200',
+    hoverButton:
+      'group-hover:border-cyan-300/30 group-hover:bg-cyan-300/[0.08]',
+    ringSweep:
+      'bg-[conic-gradient(from_0deg,transparent_0deg,transparent_312deg,rgba(34,211,238,0.10)_324deg,rgba(34,211,238,0.55)_336deg,rgba(34,211,238,0.95)_348deg,rgba(125,211,252,1)_356deg,transparent_360deg)]',
+    outerGlow: 'group-hover:shadow-[0_0_90px_rgba(34,211,238,0.18)]',
   },
   {
-    title: 'Robotics 101',
+    title: 'Intro to Game Design with Scratch',
+    subtitle: '12 Labs • 8 Weeks',
     description:
-      'Students learn the foundations of robotics, logic, and problem solving by building and experimenting with structured lab-based projects.',
+      'Students learn the foundations of interactive design, game logic, and creativity by building their own games step by step using Scratch.',
+    badge: 'Creative Coding Track',
+    badgeClass: 'border-amber-300/20 bg-amber-300/12 text-amber-100',
+    surface:
+      'bg-[linear-gradient(180deg,rgba(28,20,6,0.98),rgba(10,9,20,0.98))]',
+    hoverText: 'group-hover:text-amber-100',
+    hoverButton:
+      'group-hover:border-amber-300/30 group-hover:bg-amber-300/[0.08]',
+    ringSweep:
+      'bg-[conic-gradient(from_0deg,transparent_0deg,transparent_312deg,rgba(245,158,11,0.10)_324deg,rgba(245,158,11,0.55)_336deg,rgba(245,158,11,0.95)_348deg,rgba(251,191,36,1)_356deg,transparent_360deg)]',
+    outerGlow: 'group-hover:shadow-[0_0_100px_rgba(245,158,11,0.20)]',
   },
 ];
 
 const programHighlights = [
-  '2 focused STEM courses',
-  '12 guided labs per course',
-  '6-week structured format',
-  'Hands-on project-based learning',
+  'Small-group academy structure',
+  'Project-based learning',
+  'Clear weekly progression',
+  'Hands-on technical confidence',
 ];
 
 export default function Home() {
@@ -34,27 +56,80 @@ export default function Home() {
             Programs
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-            Structured STEM programs built around real projects.
+            Signature academy programs built for real progress.
           </h2>
           <p className="mt-6 text-lg leading-8 text-white/65">
-            Circuit Minds offers a focused learning experience through two
-            recurring hands-on courses. Each course runs in a 6-week format and
-            includes 12 labs designed to help students build real skills in
-            electronics, robotics, and technical problem solving.
+            Circuit Minds Academy offers two focused learning tracks designed to
+            help students build practical skills through guided labs, clear
+            structure, and premium presentation.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {courses.map((course) => (
+<div className="mt-14 grid gap-8 lg:grid-cols-2">
+  {courses.map((course) => (
+    <article
+      key={course.title}
+      className={`group relative overflow-hidden rounded-[2.5rem] p-[1.5px] transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] ${course.outerGlow}`}
+    >
+      <div className="absolute inset-0 rounded-[inherit] bg-white/10" />
+
+      <div className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <div
+          className={`absolute inset-[-35%] rounded-full ${course.ringSweep} group-hover:animate-[spin_3.8s_linear_infinite]`}
+        />
+      </div>
+
+      <div className="absolute inset-[1.5px] rounded-[calc(2.5rem-1.5px)] bg-[#050816]" />
+
+      <div
+        className={`absolute inset-[1.5px] rounded-[calc(2.5rem-1.5px)] ${course.surface}`}
+      />
+
+      <div className="absolute inset-[1.5px] rounded-[calc(2.5rem-1.5px)] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_26%)] opacity-70" />
+
+      <div className="relative z-10 flex min-h-[420px] flex-col rounded-[calc(2.5rem-1.5px)] p-8 md:p-10">
+        <div className="flex items-start justify-between gap-4">
+          <div className="max-w-[75%]">
             <div
-              key={course.title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur"
+              className={`inline-flex rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] ${course.badgeClass}`}
             >
-              <h3 className="text-2xl font-semibold">{course.title}</h3>
-              <p className="mt-4 text-white/65 leading-7">{course.description}</p>
+              {course.badge}
             </div>
-          ))}
+          </div>
+
+          <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80">
+            Academy
+          </div>
         </div>
+
+        <div className="mt-10">
+          <h3
+            className={`text-4xl font-black leading-tight tracking-[-0.03em] text-white transition-colors duration-300 sm:text-5xl ${course.hoverText}`}
+          >
+            {course.title}
+          </h3>
+
+          <p className="mt-4 text-lg font-semibold text-white/82">
+            {course.subtitle}
+          </p>
+
+          <p className="mt-6 max-w-xl text-lg leading-8 text-white/68 transition-colors duration-300 group-hover:text-white/78">
+            {course.description}
+          </p>
+        </div>
+
+        <div className="mt-auto pt-10">
+          <a
+            href="/login"
+            className={`inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/8 px-6 font-semibold text-white/92 backdrop-blur transition-all duration-300 hover:scale-[1.02] ${course.hoverButton}`}
+          >
+            Join the Next Cohort
+          </a>
+        </div>
+      </div>
+    </article>
+  ))}
+</div>
       </section>
 
       <section
@@ -63,11 +138,12 @@ export default function Home() {
       >
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur sm:p-10">
           <p className="text-sm uppercase tracking-[0.24em] text-violet-300/80">
-            How It Works
+            Academy Experience
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            A simple format designed for consistency and progress.
+            Designed to feel premium, structured, and real.
           </h2>
+
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {programHighlights.map((item) => (
               <div
@@ -78,11 +154,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+
           <p className="mt-8 max-w-3xl text-lg leading-8 text-white/65">
-            Instead of overwhelming students with too many paths at once,
-            Circuit Minds focuses on repeatable, high-quality programs that can
-            be taught clearly, improved over time, and delivered through a
-            premium small-group learning experience.
+            Instead of feeling like a generic class list, Circuit Minds Academy
+            is presented as a focused learning environment with strong visual
+            identity, guided tracks, and a more elevated student experience.
           </p>
         </div>
       </section>
@@ -97,38 +173,39 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              A hands-on STEM academy built to make technical learning feel real.
+              A modern academy for students who learn by building.
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/65">
-              Circuit Minds is designed for students who learn best by building,
-              experimenting, and seeing ideas come to life. The goal is not just
-              to watch or memorize, but to create, troubleshoot, and think like
-              real makers and future engineers.
+              Circuit Minds Academy is built for students who want more than
+              passive learning. The focus is on technical confidence, creativity,
+              and guided project-based progress through electronics and game
+              design.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/10 to-violet-400/10 p-8 backdrop-blur sm:p-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-violet-300/80">
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/10 to-amber-400/10 p-8 backdrop-blur sm:p-10">
+            <p className="text-sm uppercase tracking-[0.24em] text-amber-200/80">
               Get Started
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Ready to explore Circuit Minds?
+              Ready to join Circuit Minds Academy?
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/65">
-              Learn more about the program, upcoming course availability, and
-              how students can join the next cohort.
+              Explore the programs, learn about the structure, and sign in to
+              access the student and admin portal.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#programs"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 font-semibold text-[#060816] transition-transform duration-200 hover:scale-[1.02]"
+                style={{ color: '#07111f' }}
+                className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 font-semibold shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]"
               >
                 View Programs
               </a>
               <a
                 href="/login"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 font-semibold text-white/90 backdrop-blur transition-transform duration-200 hover:scale-[1.02] hover:bg-white/10"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 font-semibold text-white/90 backdrop-blur transition hover:scale-[1.02] hover:bg-white/10"
               >
                 Student Login
               </a>
