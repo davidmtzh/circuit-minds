@@ -30,10 +30,10 @@ apps/
   app/   -> Authenticated student/admin portal
   api/   -> NestJS backend API
 docs/    -> Deployment and project notes
+```
 
 ## Frontend
 
-```text
 Next.js
 React
 TypeScript
@@ -41,7 +41,6 @@ Tailwind CSS
 
 ## Backend
 
-```text
 NestJS
 TypeScript
 Auth and Database
@@ -50,14 +49,12 @@ Supabase Postgres
 
 ## Deployment
 
-```text
 Vercel for frontend apps
 Backend prepared for external hosting such as Railway or a VM
 Environment-based configuration for frontend and backend separation
 
 ## Security
 
-```text
 Supabase authentication for login
 protected routes in the portal
 backend admin authorization checks
