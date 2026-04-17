@@ -49,7 +49,7 @@ export default function LoginPage() {
               alt="Circuit Minds logo"
               width={64}
               height={64}
-              className="h-14 w-14 object-contain drop-shadow-[0_0_18px_rgba(34,211,238,0.22)]"
+              className="h-20 w-20 object-contain drop-shadow-[0_0_18px_rgba(34,211,238,0.22)]"
               priority
             />
 
