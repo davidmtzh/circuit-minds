@@ -1,30 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 function AcademyLogo() {
   return (
-    <div className="flex items-center gap-4">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/25 bg-cyan-400/10 shadow-[0_0_30px_rgba(34,211,238,0.14)]">
-        <svg
-          viewBox="0 0 64 64"
-          className="h-8 w-8 text-cyan-300"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M32 10L48 18V32C48 43 41 51 32 54C23 51 16 43 16 32V18L32 10Z"
-            stroke="currentColor"
-            strokeWidth="3"
-          />
-          <path
-            d="M24 30L29 35L40 24"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
+    <div className="flex items-center gap-3">
+      <img
+        src="/circuit-minds-logo.png"
+        alt="Circuit Minds logo"
+        className="h-24 w-24 object-contain drop-shadow-[0_0_18px_rgba(34,211,238,0.22)]"
+      />
 
       <div>
         <p className="text-3xl font-black tracking-tight text-white sm:text-4xl">
@@ -48,12 +32,14 @@ export default function CircuitHero() {
         <div className="flex items-center justify-between gap-4">
           <AcademyLogo />
 
-          <Link
-            href="/login"
+          <a
+            href="https://circuit-minds-app.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10"
           >
             Student Login
-          </Link>
+          </a>
         </div>
 
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -67,13 +53,13 @@ export default function CircuitHero() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-              A premium, project-based learning experience where students build
-              real technical confidence through electronics and game design.
+              Expand your skills with this project-based learning experience where students build
+              real technical projects, portfolio ready documentation and evidence of learning.
             </p>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-white/58">
-              Designed for curious students who learn best by creating, testing,
-              and building step by step in a structured academy environment.
+              Designed for curious students who learn best by following along with a class or at your own time.
+              Circuit Minds Academy offers structured 6-week courses with real projects, guided labs, and a more academy-style experience.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -94,7 +80,7 @@ export default function CircuitHero() {
 
 <div className="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
   {[
-    ['2 Programs', 'Focused tracks'],
+    ['3 Programs', 'Focused tracks'],
     ['12 Labs', 'Per course'],
     ['Small Groups', 'Guided learning'],
   ].map(([title, subtitle]) => (
@@ -128,7 +114,7 @@ export default function CircuitHero() {
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                     <p className="text-sm text-white/55">Primary Focus</p>
                     <p className="mt-2 text-xl font-semibold">
-                      Electronics + Intro to Game Design
+                      Electronics + Game Design + Creative Coding
                     </p>
                   </div>
 
