@@ -47,6 +47,10 @@ Auth and Database
 Supabase Auth
 Supabase Postgres
 
+### Database Schema
+Core relational schema used to model users, courses, sessions, enrollments, and coursework workflows.
+![Circuit Minds Database Schema](docs/screenshots/circuit-minds-database-schema.png)
+
 ## Deployment
 
 Vercel for frontend apps
