@@ -45,7 +45,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_0_80px_rgba(34,211,238,0.06)] backdrop-blur sm:p-10">
           <div className="mb-8 flex items-center gap-3">
             <Image
-              src="/circuit-minds-logo.svg"
+              src="/circuit-minds-logo.png"
               alt="Circuit Minds logo"
               width={64}
               height={64}
