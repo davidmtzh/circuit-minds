@@ -60,3 +60,18 @@ protected routes in the portal
 backend admin authorization checks
 service role key kept backend-only
 environment separation between public and privileged services
+
+## Screenshots
+
+### Homepage
+![Circuit Minds Homepage](docs/screenshots/circuit-minds-homepage.png)
+
+### Admin Dashboard
+![Circuit Minds Admin Dashboard](docs/screenshots/circuit-minds-admin-dashboard.png)
+
+### Admin Sessions
+![Circuit Minds Admin Sessions](docs/screenshots/circuit-minds-admin-sessions.png)
+
+### Admin Enrollments
+![Circuit Minds Admin Enrollments](docs/screenshots/circuit-minds-admin-enrollments.png)
+
