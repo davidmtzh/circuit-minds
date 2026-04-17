@@ -35,7 +35,7 @@ const courses = [
   },
   {
     title: 'Building a Website with AI',
-    subtitle: '10 Labs • 12 Weeks',
+    subtitle: '8 Labs • 10 Weeks',
     description:
       'From deploying a game to creating a first portfolio, students learn how to build and publish a real website with AI as a tool. The focus is on understanding the process, making changes themselves, and seeing their ideas come to life online.',
     badge: 'Modern Web Building',
