@@ -34,3 +34,5 @@ next-env.d.ts
 
 # Optional Supabase local temp files
 supabase/.temp/
+
+*:Zone.Identifier
