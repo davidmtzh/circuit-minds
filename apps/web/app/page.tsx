@@ -2,22 +2,79 @@ import CircuitHero from '@/components/hero/CircuitHero';
 
 const courses = [
   {
-    title: 'Electronics 101',
+    title: 'Foundations of Electronics',
+    subtitle: '10 Labs • 12 Weeks',
     description:
-      'Students explore circuits, components, and hands-on electronics through guided lab projects designed to build confidence and technical intuition.',
+      'Students learn electronics by building real circuits with their own hands. They work through guided labs using breadboards, components, and simple systems that make the concepts easier to understand and remember.',
+    badge: 'Hands-On Engineering',
+    badgeClass: 'border-cyan-300/20 bg-cyan-300/12 text-cyan-100',
+    surface:
+      'bg-[linear-gradient(180deg,rgba(8,20,42,0.98),rgba(5,8,22,0.98))]',
+    hoverText: 'group-hover:text-cyan-200',
+    hoverButton:
+      'group-hover:border-cyan-300/30 group-hover:bg-cyan-300/[0.08]',
+    ringSweep:
+      'bg-[conic-gradient(from_0deg,transparent_0deg,transparent_312deg,rgba(34,211,238,0.10)_324deg,rgba(34,211,238,0.55)_336deg,rgba(34,211,238,0.95)_348deg,rgba(125,211,252,1)_356deg,transparent_360deg)]',
+    outerGlow: 'group-hover:shadow-[0_0_90px_rgba(34,211,238,0.18)]',
   },
   {
-    title: 'Robotics 101',
+    title: 'Intro to Game Design',
+    subtitle: '10 Labs • 12 Weeks',
     description:
-      'Students learn the foundations of robotics, logic, and problem solving by building and experimenting with structured lab-based projects.',
+      'Students create games while learning logic, creativity, and problem solving step by step. Each lab helps them build confidence by making something interactive they can actually play and improve.',
+    badge: 'Creative Coding',
+    badgeClass: 'border-amber-300/20 bg-amber-300/12 text-amber-100',
+    surface:
+      'bg-[linear-gradient(180deg,rgba(28,20,6,0.98),rgba(10,9,20,0.98))]',
+    hoverText: 'group-hover:text-amber-100',
+    hoverButton:
+      'group-hover:border-amber-300/30 group-hover:bg-amber-300/[0.08]',
+    ringSweep:
+      'bg-[conic-gradient(from_0deg,transparent_0deg,transparent_312deg,rgba(245,158,11,0.10)_324deg,rgba(245,158,11,0.55)_336deg,rgba(245,158,11,0.95)_348deg,rgba(251,191,36,1)_356deg,transparent_360deg)]',
+    outerGlow: 'group-hover:shadow-[0_0_100px_rgba(245,158,11,0.20)]',
+  },
+  {
+    title: 'Building a Website with AI',
+    subtitle: '10 Labs • 12 Weeks',
+    description:
+      'From deploying a game to creating a first portfolio, students learn how to build and publish a real website with AI as a tool. The focus is on understanding the process, making changes themselves, and seeing their ideas come to life online.',
+    badge: 'Modern Web Building',
+    badgeClass: 'border-violet-300/20 bg-violet-300/12 text-violet-100',
+    surface:
+      'bg-[linear-gradient(180deg,rgba(20,10,42,0.98),rgba(8,8,22,0.98))]',
+    hoverText: 'group-hover:text-violet-100',
+    hoverButton:
+      'group-hover:border-violet-300/30 group-hover:bg-violet-300/[0.08]',
+    ringSweep:
+      'bg-[conic-gradient(from_0deg,transparent_0deg,transparent_312deg,rgba(168,85,247,0.10)_324deg,rgba(168,85,247,0.55)_336deg,rgba(168,85,247,0.95)_348deg,rgba(196,181,253,1)_356deg,transparent_360deg)]',
+    outerGlow: 'group-hover:shadow-[0_0_100px_rgba(168,85,247,0.20)]',
   },
 ];
 
 const programHighlights = [
-  '2 focused STEM courses',
-  '12 guided labs per course',
-  '6-week structured format',
-  'Hands-on project-based learning',
+  'Small class ratios',
+  'Hands-on labs every week',
+  'Recordings and readings included',
+  'Learn at your pace or follow live',
+];
+
+const philosophyCards = [
+  {
+    title: 'Learn by doing',
+    text: 'I believe students learn technology best when they build, test, and make mistakes with their own hands instead of only watching or memorizing.',
+  },
+  {
+    title: 'Teaching that sticks',
+    text: 'This academy is inspired by the teachers who made learning memorable, practical, and interesting, along with my own experience teaching kids of different ages and backgrounds.',
+  },
+  {
+    title: 'Built on real teaching experience',
+    text: 'My background includes teaching STEM, working in ABA, and helping students improve communication, social skills, and classroom readiness in ways that match their pace.',
+  },
+  {
+    title: 'Small groups matter',
+    text: 'Keeping classes small makes it easier to support each student, notice challenges early, and help them stay engaged without getting left behind.',
+  },
 ];
 
 export default function Home() {
@@ -34,25 +91,78 @@ export default function Home() {
             Programs
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-            Structured STEM programs built around real projects.
+            Courses built around real learning.
           </h2>
           <p className="mt-6 text-lg leading-8 text-white/65">
-            Circuit Minds offers a focused learning experience through two
-            recurring hands-on courses. Each course runs in a 6-week format and
-            includes 12 labs designed to help students build real skills in
-            electronics, robotics, and technical problem solving.
+            Circuit Minds Academy focuses on hands-on learning, small groups,
+            and clear guidance so students can build confidence through real
+            projects, not just passive lessons.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {courses.map((course) => (
-            <div
+            <article
               key={course.title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur"
+              className={`group relative overflow-hidden rounded-[2.5rem] p-[1.5px] transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] ${course.outerGlow}`}
             >
-              <h3 className="text-2xl font-semibold">{course.title}</h3>
-              <p className="mt-4 text-white/65 leading-7">{course.description}</p>
-            </div>
+              <div className="absolute inset-0 rounded-[inherit] bg-white/10" />
+
+              <div className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <div
+                  className={`absolute inset-[-35%] rounded-full ${course.ringSweep} group-hover:animate-[spin_3.8s_linear_infinite]`}
+                />
+              </div>
+
+              <div className="absolute inset-[1.5px] rounded-[calc(2.5rem-1.5px)] bg-[#050816]" />
+
+              <div
+                className={`absolute inset-[1.5px] rounded-[calc(2.5rem-1.5px)] ${course.surface}`}
+              />
+
+              <div className="absolute inset-[1.5px] rounded-[calc(2.5rem-1.5px)] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_26%)] opacity-70" />
+
+              <div className="relative z-10 flex min-h-[440px] flex-col rounded-[calc(2.5rem-1.5px)] p-8 md:p-10">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="max-w-[75%]">
+                    <div
+                      className={`inline-flex rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] ${course.badgeClass}`}
+                    >
+                      {course.badge}
+                    </div>
+                  </div>
+
+                  <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80">
+                    Course
+                  </div>
+                </div>
+
+                <div className="mt-10">
+                  <h3
+                    className={`text-4xl font-black leading-tight tracking-[-0.03em] text-white transition-colors duration-300 sm:text-5xl ${course.hoverText}`}
+                  >
+                    {course.title}
+                  </h3>
+
+                  <p className="mt-4 text-lg font-semibold text-white/82">
+                    {course.subtitle}
+                  </p>
+
+                  <p className="mt-6 max-w-xl text-lg leading-8 text-white/68 transition-colors duration-300 group-hover:text-white/78">
+                    {course.description}
+                  </p>
+                </div>
+
+                <div className="mt-auto pt-10">
+                  <a
+                    href="/login"
+                    className={`inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/8 px-6 font-semibold text-white/92 backdrop-blur transition-all duration-300 hover:scale-[1.02] ${course.hoverButton}`}
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -66,8 +176,9 @@ export default function Home() {
             How It Works
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            A simple format designed for consistency and progress.
+            Built to support students as they learn.
           </h2>
+
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {programHighlights.map((item) => (
               <div
@@ -78,11 +189,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+
           <p className="mt-8 max-w-3xl text-lg leading-8 text-white/65">
-            Instead of overwhelming students with too many paths at once,
-            Circuit Minds focuses on repeatable, high-quality programs that can
-            be taught clearly, improved over time, and delivered through a
-            premium small-group learning experience.
+            Students can follow along with the course week by week, or review
+            recordings and readings at their own pace while continuing to build
+            real projects and skills.
           </p>
         </div>
       </section>
@@ -94,41 +205,51 @@ export default function Home() {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur sm:p-10">
             <p className="text-sm uppercase tracking-[0.24em] text-cyan-300/80">
-              About
+              Teaching Philosophy
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              A hands-on STEM academy built to make technical learning feel real.
+              A learning approach shaped by real teaching experience.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-white/65">
-              Circuit Minds is designed for students who learn best by building,
-              experimenting, and seeing ideas come to life. The goal is not just
-              to watch or memorize, but to create, troubleshoot, and think like
-              real makers and future engineers.
-            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {philosophyCards.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+                >
+                  <h3 className="text-lg font-semibold text-white">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-white/68">
+                    {card.text}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/10 to-violet-400/10 p-8 backdrop-blur sm:p-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-violet-300/80">
+            <p className="text-sm uppercase tracking-[0.24em] text-violet-200/80">
               Get Started
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Ready to explore Circuit Minds?
+              Ready to build and learn?
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/65">
-              Learn more about the program, upcoming course availability, and
-              how students can join the next cohort.
+              Explore the courses, choose the path that fits you best, and start
+              learning through projects, labs, and guided practice.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#programs"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 font-semibold text-[#060816] transition-transform duration-200 hover:scale-[1.02]"
+                style={{ color: '#07111f' }}
+                className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 font-semibold shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]"
               >
-                View Programs
+                View Courses
               </a>
               <a
-                href="/login"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 font-semibold text-white/90 backdrop-blur transition-transform duration-200 hover:scale-[1.02] hover:bg-white/10"
+                href="https://circuit-minds-app.vercel.app/"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 font-semibold text-white/90 backdrop-blur transition hover:scale-[1.02] hover:bg-white/10"
               >
                 Student Login
               </a>
