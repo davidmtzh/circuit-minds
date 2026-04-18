@@ -38,6 +38,8 @@ Next.js
 React
 TypeScript
 Tailwind CSS
+### Homepage
+![Circuit Minds Homepage](docs/screenshots/circuit-minds-homepage.png)
 
 ## Backend
 
@@ -68,8 +70,6 @@ environment separation between public and privileged services
 
 ## Screenshots
 
-### Homepage
-![Circuit Minds Homepage](docs/screenshots/circuit-minds-homepage.png)
 
 ### Admin Dashboard
 ![Circuit Minds Admin Dashboard](docs/screenshots/circuit-minds-admin-dashboard.png)
