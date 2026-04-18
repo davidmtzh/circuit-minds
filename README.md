@@ -56,6 +56,7 @@ Core relational schema used to model users, courses, sessions, enrollments, and 
 Vercel for frontend apps
 Backend prepared for external hosting such as Railway or a VM
 Environment-based configuration for frontend and backend separation
+![Circuit Minds Homepage](docs/screenshots/circuit-minds-deployment.png)
 
 ## Security
 
